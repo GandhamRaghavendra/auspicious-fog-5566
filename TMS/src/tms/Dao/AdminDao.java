@@ -10,7 +10,7 @@ import tms.Exception.VendorException;
 
 public interface AdminDao {
 	
-public void adminLogin(String mail,int pass) throws AdminException;
+public boolean adminLogin(String mail,int pass) throws AdminException;
 	
 public String addProject(ProjectBeen p);
 
