@@ -1,20 +1,31 @@
 package tms.Been;
 
 public class BiderBeen {
+private int BidId;
 private int VendorId;
 private String PId;
 private int BidAmount;
-private String Status="Waiting";
+private String Status;
 
 public BiderBeen() {
 	// TODO Auto-generated constructor stub
 }
 
-public BiderBeen(int vendorId, String pId, int bidAmount) {
+public BiderBeen(int bidId, int vendorId, String pId, int bidAmount, String status) {
 	super();
+	BidId = bidId;
 	VendorId = vendorId;
 	PId = pId;
 	BidAmount = bidAmount;
+	Status = status;
+}
+
+public int getBidId() {
+	return BidId;
+}
+
+public void setBidId(int bidId) {
+	BidId = bidId;
 }
 
 public int getVendorId() {
@@ -51,7 +62,10 @@ public void setStatus(String status) {
 
 @Override
 public String toString() {
-	return "BiderBeen [VendorId=" + VendorId + ", PId=" + PId + ", BidAmount=" + BidAmount + ", Status=" + Status + "]";
+	return "BiderBeen [BidId=" + BidId + ", VendorId=" + VendorId + ", PId=" + PId + ", BidAmount=" + BidAmount
+			+ ", Status=" + Status + "]";
 }
+
+
 
 }

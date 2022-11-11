@@ -168,20 +168,62 @@ public class AdminDaoImpl implements AdminDao{
 
 	@Override
 	public List<BiderBeen> getAllBids() throws AdminException {
-		// TODO Auto-generated method stub
-		return null;
+		List<BiderBeen> list =new ArrayList<>();
+		
+		try (Connection con = DbUtil.ConnectionProvider()){
+			PreparedStatement ps = con.prepareStatement("Select * From Bider");
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				list.add(new BiderBeen(rs.getInt("Bid"),rs.getInt("Vid"),rs.getString("Pid"),rs.getInt("BidAmount"),rs.getString("Status")));
+			}
+		} 
+		catch (SQLException e) {
+			throw new AdminException(e.getMessage());
+		}
+		
+		return list;
 	}
 
 	@Override
-	public String approveBid(int BId) throws AdminException {
-		// TODO Auto-generated method stub
-		return null;
+	public String approveBid(int Pid) throws AdminException {
+		String mes="Failed";
+		
+		try (Connection con = DbUtil.ConnectionProvider()){
+			PreparedStatement ps = con.prepareStatement("Update Bider Set Status='approve' Where Bid="
+					+ "(Select Bid From Bider Where Pid=? Order By BidAmount Limit 1)");
+			ps.setInt(1, Pid);
+			
+			int x = ps.executeUpdate();
+			
+			if(x>0) mes="Bid approved";
+		} 
+		catch (SQLException e) {
+			throw new AdminException(e.getMessage());
+		}
+		
+		return mes;
 	}
 
 	@Override
 	public List<BiderBeen> getAllApprovedBids() throws AdminException {
-		// TODO Auto-generated method stub
-		return null;
+		List<BiderBeen> list =new ArrayList<>();
+		try (Connection con = DbUtil.ConnectionProvider()){
+			PreparedStatement ps = con.prepareStatement("Select * From Bider Where Status='approved'");
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				list.add(new BiderBeen(rs.getInt("Bid"),rs.getInt("Vid"),rs.getString("Pid"),rs.getInt("BidAmount"),rs.getString("Status")));
+			}
+			
+			
+		} 
+		catch (SQLException e) {
+			throw new AdminException(e.getMessage());
+		}
+		return list;
 	}
 
 }
