@@ -1,6 +1,7 @@
 package tms.Been;
 
 public class VendorBeen {
+private int vid;
 private String name;
 private String mail;
 private int pass;
@@ -11,13 +12,22 @@ public VendorBeen() {
 	// TODO Auto-generated constructor stub
 }
 
-public VendorBeen(String name, String mail, int pass, String cname, String add) {
+public VendorBeen(int vid, String name, String mail, int pass, String cname, String add) {
 	super();
+	this.vid = vid;
 	this.name = name;
 	this.mail = mail;
 	this.pass = pass;
 	this.cname = cname;
 	this.add = add;
+}
+
+public int getVid() {
+	return vid;
+}
+
+public void setVid(int vid) {
+	this.vid = vid;
 }
 
 public String getName() {
@@ -62,6 +72,9 @@ public void setAdd(String add) {
 
 @Override
 public String toString() {
-	return "VendorBeen [name=" + name + ", mail=" + mail + ", pass=" + pass + ", cname=" + cname + ", add=" + add + "]";
+	return "VendorBeen [vid=" + vid + ", name=" + name + ", mail=" + mail + ", pass=" + pass + ", cname=" + cname
+			+ ", add=" + add + "]";
 }
+
+
 }

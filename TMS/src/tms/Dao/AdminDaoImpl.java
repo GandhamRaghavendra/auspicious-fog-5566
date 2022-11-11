@@ -150,7 +150,18 @@ public class AdminDaoImpl implements AdminDao{
 	public List<VendorBeen> getAllVendors() throws VendorException {
 		List<VendorBeen> list =new ArrayList<>();
 		
-		
+		try(Connection con = DbUtil.ConnectionProvider()){
+			PreparedStatement ps = con.prepareStatement("Select * From Vendor");
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				list.add(new VendorBeen(rs.getInt("Vid"),rs.getString("Vname"),rs.getString("Email"),rs.getInt("Pass"),rs.getString("Cname"),rs.getString("Addres")));
+			}
+		} 
+		catch (SQLException e) {
+			throw new VendorException(e.getMessage());
+		}
 		
 		return list;
 	}
