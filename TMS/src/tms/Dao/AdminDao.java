@@ -11,6 +11,8 @@ import tms.Exception.VendorException;
 public interface AdminDao {
 	
 public boolean adminLogin(String mail,int pass) throws AdminException;
+
+public void getAdmin(String mail,int pass) throws AdminException;
 	
 public String addProject(ProjectBeen p);
 

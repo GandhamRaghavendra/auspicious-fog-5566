@@ -12,6 +12,8 @@ public VendorBeen vendorLogin(String mail,int pass) throws VendorException;
 
 public boolean vendorRegistration(VendorBeen v) throws VendorException;
 
+public VendorBeen getVendor(String mail,int pass) throws VendorException;
+
 public VendorBeen updateVendorDetails(int Vid,int pass,VendorBeen v) throws VendorException;
 
 public List<ProjectBeen> getAllProjects() throws VendorException;

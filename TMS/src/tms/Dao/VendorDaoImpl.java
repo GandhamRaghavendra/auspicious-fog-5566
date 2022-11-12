@@ -119,6 +119,8 @@ public class VendorDaoImpl implements VendorDao{
 			while(rs.next()) {
 				list.add(new ProjectBeen(rs.getString("Pid"),rs.getString("PName"),rs.getString("Ptype"),rs.getInt("BasePrice"),rs.getString("Pdesc"),rs.getString("Ploc"),rs.getString("DeadLine")));
 			}
+			
+			if(list.size()==0) throw new VendorException("Not Available");
 		} 
 		catch (SQLException e) {
 			throw new VendorException(e.getMessage());
@@ -163,6 +165,29 @@ public class VendorDaoImpl implements VendorDao{
 			throw new VendorException(e.getMessage());
 		}
 		return mes;
+	}
+
+	@Override
+	public VendorBeen getVendor(String mail, int pass) throws VendorException {
+		VendorBeen v=null;
+		
+		try(Connection con = DbUtil.ConnectionProvider()) {
+			PreparedStatement ps = con.prepareStatement("Select * From Vendor Where Email=? AND Pass=?");
+			
+			ps.setString(1, mail);
+			ps.setInt(2, pass);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				v=new VendorBeen(rs.getInt("Vid"),rs.getString("Vname"),rs.getString("Email"),rs.getInt("Pass"),rs.getString("ComName"),rs.getString("Address"));
+			}
+			else throw new VendorException("Invalid Mail OR Pass");
+		} 
+		catch (SQLException e) {
+			throw new VendorException(e.getMessage());
+		}
+		return v;
 	}
 
 }

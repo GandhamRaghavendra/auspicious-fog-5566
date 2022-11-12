@@ -226,4 +226,28 @@ public class AdminDaoImpl implements AdminDao{
 		return list;
 	}
 
+	@Override
+	public void getAdmin(String mail, int pass) throws AdminException {
+	     try (Connection con = DbUtil.ConnectionProvider()){
+			PreparedStatement ps = con.prepareStatement("Select * From Admin Where Email=? AND Pass=?");
+			
+			ps.setString(1, mail);
+			ps.setInt(2, pass);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				System.out.println("Id: "+rs.getInt("Id"));
+				System.out.println("Name: "+rs.getString("Name"));
+				System.out.println("Mail: "+rs.getString("Email"));
+				System.out.println("Pass: "+rs.getInt("Pass"));
+			}
+			else throw new AdminException("Invalid Mail OR Pass");
+		} 
+	     catch (SQLException e) {
+			throw new AdminException(e.getMessage());
+		}
+		
+	}
+
 }
