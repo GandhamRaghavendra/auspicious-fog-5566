@@ -34,7 +34,7 @@ public class UpdateVendorDetailsUsecase {
 		System.out.println("Enter New Address");
 		String add=s.next();
 		
-		s.close();
+//		s.close();
 		
 		try {
 			VendorBeen newv = vDao.updateVendorDetails(Id,oldPass,new VendorBeen(0, name, mail, newPass, cname, add));

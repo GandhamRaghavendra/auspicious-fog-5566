@@ -18,7 +18,7 @@ public class updateBidAmountUsecase {
 		System.out.println("Enter New Amount");
 		int newAmount=s.nextInt();
 		
-		s.close();
+//		s.close();
 		
 		try {
 			String mes = vdao.updateBidAmount(Bid,newAmount);

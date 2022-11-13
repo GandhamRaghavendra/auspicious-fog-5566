@@ -19,7 +19,7 @@ public class AdminDaoImpl implements AdminDao{
 	@Override
 	public boolean adminLogin(String mail, int pass) throws AdminException {
 	try (Connection con = DbUtil.ConnectionProvider();){
-		PreparedStatement ps = con.prepareStatement("Select * from Admin Where Email=?,Pass=?");
+		PreparedStatement ps = con.prepareStatement("Select * from Admin Where Email=? AND Pass=?");
 		
 		ps.setString(1, mail);
 		ps.setInt(2,pass);
@@ -138,6 +138,7 @@ public class AdminDaoImpl implements AdminDao{
 			while(rs.next()) {
 				list.add(new ProjectBeen(rs.getString("Pid"),rs.getString("PName"),rs.getString("Ptype"),rs.getInt("BasePrice"),rs.getString("Pdesc"),rs.getString("Ploc"),rs.getString("Deadline")));
 			}
+			if(list.size()==0) throw new AdminException("No Project Available");
 		} 
 		catch (SQLException e) {
 			throw new AdminException(e.getMessage());
@@ -158,6 +159,7 @@ public class AdminDaoImpl implements AdminDao{
 			while(rs.next()) {
 				list.add(new VendorBeen(rs.getInt("Vid"),rs.getString("Vname"),rs.getString("Email"),rs.getInt("Pass"),rs.getString("Cname"),rs.getString("Addres")));
 			}
+			if(list.size()==0) throw new VendorException("Empty Table");
 		} 
 		catch (SQLException e) {
 			throw new VendorException(e.getMessage());
@@ -178,6 +180,7 @@ public class AdminDaoImpl implements AdminDao{
 			while(rs.next()) {
 				list.add(new BiderBeen(rs.getInt("Bid"),rs.getInt("Vid"),rs.getString("Pid"),rs.getInt("BidAmount"),rs.getString("Status")));
 			}
+			if(list.size()==0) throw new AdminException("Bid Table is Empty");
 		} 
 		catch (SQLException e) {
 			throw new AdminException(e.getMessage());
@@ -217,7 +220,7 @@ public class AdminDaoImpl implements AdminDao{
 			while(rs.next()) {
 				list.add(new BiderBeen(rs.getInt("Bid"),rs.getInt("Vid"),rs.getString("Pid"),rs.getInt("BidAmount"),rs.getString("Status")));
 			}
-			
+			if(list.size()==0) throw new AdminException("Not Bids Approved");
 			
 		} 
 		catch (SQLException e) {
@@ -237,6 +240,7 @@ public class AdminDaoImpl implements AdminDao{
 			ResultSet rs = ps.executeQuery();
 			
 			if(rs.next()) {
+				System.out.println("Admin Details");
 				System.out.println("Id: "+rs.getInt("Id"));
 				System.out.println("Name: "+rs.getString("Name"));
 				System.out.println("Mail: "+rs.getString("Email"));

@@ -29,7 +29,7 @@ public class Services {
 		int price=s.nextInt();
 		
 		System.out.println("Enter Project Desc");
-		String desc=s.nextLine();
+		String desc=s.next();
 		
 		System.out.println("Enter Project Location");
 		String loc=s.next();
@@ -43,7 +43,7 @@ public class Services {
 		
 		System.out.println(mes);
 		
-		s.close();
+		// s.close();
 		
 	}
 	
@@ -61,7 +61,7 @@ public class Services {
 		catch (AdminException e) {
 			System.out.println(e.getMessage());
 		}
-		s.close();
+		// s.close();
 		
 	}
 	
@@ -88,7 +88,7 @@ public class Services {
 		
 		System.out.println(mes);
 		
-		s.close();
+		// s.close();
 		
 	}
 	
@@ -107,7 +107,7 @@ public class Services {
 	    catch (VendorException e) {
 			System.out.println(e.getMessage());
 		}
-	    s.close();	
+	    // s.close();	
 	}
 	
 	public static void getAllProjects() {
@@ -163,7 +163,7 @@ public class Services {
 		catch (AdminException e) {
 			System.out.println(e.getMessage());
 		}
-		s.close();	
+	// s.close();	
 	}
 	
 	public static void getAllApprovedBids() {
@@ -195,7 +195,7 @@ public class Services {
 			System.out.println(e.getMessage());
 		}
         
-        s.close();
+      // s.close();
         }	
 }
 

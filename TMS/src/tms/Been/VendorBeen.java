@@ -72,7 +72,7 @@ public void setAdd(String add) {
 
 @Override
 public String toString() {
-	return "VendorBeen [vid=" + vid + ", name=" + name + ", mail=" + mail + ", pass=" + pass + ", cname=" + cname
+	return "VendorProfile [vid=" + vid + ", name=" + name + ", mail=" + mail + ", pass=" + pass + ", cname=" + cname
 			+ ", add=" + add + "]";
 }
 

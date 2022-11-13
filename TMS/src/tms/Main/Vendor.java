@@ -12,7 +12,7 @@ public class Vendor {
 	public static void main(String[] args) {
 		Scanner s=new Scanner(System.in);
 		
-		System.out.println("<><><><>---- Customer Menu ----<><><><>\n");
+		System.out.println("<><><><>---- Vendor Menu ----<><><><>\n");
 		System.out.println("1. Update Vendor Profile");
 		System.out.println("2. Get All Available Project");
 		System.out.println("3. Bid On Project");
@@ -46,7 +46,7 @@ public class Vendor {
 			break;	
 		}
 		
-		s.close();
+//		s.close();
 	}
 
 }

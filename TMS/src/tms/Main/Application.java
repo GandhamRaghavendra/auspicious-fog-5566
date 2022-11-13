@@ -39,17 +39,19 @@ public class Application {
 		}
 	    case(3):{
 			VendorRegisterUsecase.main(null);
+			Application.main(null);
+			break;
 		}
 	    case(85):{
 			System.out.println("Thank You For Using Our Application");
+			break;
 		}
 	    default :{
 	    	System.out.println("Chose Curctly");
 	    	Application.main(null);
+	    	break;
 	    }
 		}
-		
-		s.close();
 	}
 
 }

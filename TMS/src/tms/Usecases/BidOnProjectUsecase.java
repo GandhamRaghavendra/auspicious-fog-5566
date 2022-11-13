@@ -23,7 +23,7 @@ public class BidOnProjectUsecase {
 		System.out.println("Enter BidAmount");
 		int Amount=s.nextInt();
 		
-		s.close();
+//		s.close();
 		
 		try {
 			String mes = vdao.BidOnProject(new BiderBeen(0, Vid, Pid, Amount,null));

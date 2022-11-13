@@ -27,7 +27,7 @@ public class VendorRegisterUsecase {
 		  System.out.println("Enter Address");
 		  String add=s.next();
 		  
-		  s.close();
+//		  s.close();
 		  
 		  try {
 			boolean mes = vDao.vendorRegistration(new VendorBeen(0, name, mail, pass, cname, add));
