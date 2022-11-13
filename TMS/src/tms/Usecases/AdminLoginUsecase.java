@@ -7,7 +7,7 @@ import tms.Exception.AdminException;
 
 public class AdminLoginUsecase {
 
-	public static void main(String[] args) {
+	public static void AdminLogin() {
 		AdminDao dao = new AdminDaoImpl();
 		
 		Scanner s=new Scanner(System.in);

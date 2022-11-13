@@ -16,7 +16,7 @@ public void getAdmin(String mail,int pass) throws AdminException;
 	
 public String addProject(ProjectBeen p);
 
-public String removeProject(int PId) throws AdminException;
+public String removeProject(String PId) throws AdminException;
 
 public String addVendor(VendorBeen v);
 
@@ -28,7 +28,7 @@ public List<VendorBeen> getAllVendors() throws VendorException;
 
 public List<BiderBeen> getAllBids() throws AdminException;
 
-public String approveBid(int Pid) throws AdminException;
+public String approveBid(String Pid) throws AdminException;
 
 public List<BiderBeen> getAllApprovedBids() throws AdminException;
 

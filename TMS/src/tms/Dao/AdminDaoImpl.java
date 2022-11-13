@@ -65,13 +65,13 @@ public class AdminDaoImpl implements AdminDao{
 	}
 
 	@Override
-	public String removeProject(int PId) throws AdminException {
+	public String removeProject(String PId) throws AdminException {
 		String mes="Failed";
 		
 		try (Connection con = DbUtil.ConnectionProvider()){
 			PreparedStatement ps = con.prepareStatement("Delete From Projects Where Pid=?");
 			
-			ps.setInt(1, PId);
+			ps.setString(1, PId);
 			
 			int x = ps.executeUpdate();
 			
@@ -187,13 +187,13 @@ public class AdminDaoImpl implements AdminDao{
 	}
 
 	@Override
-	public String approveBid(int Pid) throws AdminException {
+	public String approveBid(String Pid) throws AdminException {
 		String mes="Failed";
 		
 		try (Connection con = DbUtil.ConnectionProvider()){
 			PreparedStatement ps = con.prepareStatement("Update Bider Set Status='approve' Where Bid="
 					+ "(Select Bid From Bider Where Pid=? Order By BidAmount Limit 1)");
-			ps.setInt(1, Pid);
+			ps.setString(1, Pid);
 			
 			int x = ps.executeUpdate();
 			
