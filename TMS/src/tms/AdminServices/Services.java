@@ -155,11 +155,11 @@ public class Services {
         AdminDaoImpl Adao = new AdminDaoImpl();
 		
 		Scanner s=new Scanner(System.in);
-		System.out.println("Enter Project Id");
-		String pid=s.next();
+		System.out.println("Enter Bid Id");
+		int Bid=s.nextInt();
 		
 		try {
-			String mes = Adao.approveBid(pid);
+			String mes = Adao.approveBid(Bid);
 			System.out.println(mes);
 		}
 		catch (AdminException e) {

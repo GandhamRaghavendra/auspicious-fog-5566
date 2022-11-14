@@ -190,13 +190,12 @@ public class AdminDaoImpl implements AdminDao{
 	}
 
 	@Override
-	public String approveBid(String Pid) throws AdminException {
+	public String approveBid(int BId) throws AdminException {
 		String mes="Failed";
 		
 		try (Connection con = DbUtil.ConnectionProvider()){
-			PreparedStatement ps = con.prepareStatement("Update Bider Set Status='approve' Where Bid="
-					+ "(Select Bid From Bider Where Pid=? Order By BidAmount Limit 1)");
-			ps.setString(1, Pid);
+			PreparedStatement ps = con.prepareStatement("Update Bider Set Status='Approved' Where Bid=?");
+			ps.setInt(1, BId);
 			
 			int x = ps.executeUpdate();
 			

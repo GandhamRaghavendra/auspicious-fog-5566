@@ -28,7 +28,7 @@ public List<VendorBeen> getAllVendors() throws VendorException;
 
 public List<BiderBeen> getAllBids() throws AdminException;
 
-public String approveBid(String Pid) throws AdminException;
+public String approveBid(int BId) throws AdminException;
 
 public List<BiderBeen> getAllApprovedBids() throws AdminException;
 

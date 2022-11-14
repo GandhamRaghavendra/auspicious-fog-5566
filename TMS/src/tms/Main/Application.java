@@ -21,7 +21,7 @@ public class Application {
 		System.out.println("\nLogin as a Admin/Customer to continue : ");
 		System.out.println("1. Login as Admin");
 		System.out.println("2. Login as Vendor");
-		System.out.println("3. Register as a Vendor.");
+		System.out.println("3. Register Vendor.");
 		System.out.println("85. Exit");
 
 		System.out.print("\nEnter choice : ");
