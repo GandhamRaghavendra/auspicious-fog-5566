@@ -25,16 +25,20 @@ public class Vendor {
 		switch(choice) {
 		case 1:
 			UpdateVendorDetailsUsecase.main(null);
+			Vendor.main(null);
 			break;
 		case 2:
 			getAllProjectsUsecase.main(null);
+			Vendor.main(null);
 			
 			break;
 		case 3:
 			BidOnProjectUsecase.main(null);
+			Vendor.main(null);
 			break;
 		case 4:
 			updateBidAmountUsecase.main(null);
+			Vendor.main(null);
 			break;
 		case 99:
 			System.out.println("Returned To Main Menu");

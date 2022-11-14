@@ -62,7 +62,7 @@ public void setStatus(String status) {
 
 @Override
 public String toString() {
-	return "BiderBeen [BidId=" + BidId + ", VendorId=" + VendorId + ", PId=" + PId + ", BidAmount=" + BidAmount
+	return "Bid [BidId=" + BidId + ", VendorId=" + VendorId + ", PId=" + PId + ", BidAmount=" + BidAmount
 			+ ", Status=" + Status + "]";
 }
 

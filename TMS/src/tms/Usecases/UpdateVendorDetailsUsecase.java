@@ -5,6 +5,7 @@ import java.util.Scanner;
 import tms.Been.VendorBeen;
 import tms.Dao.*;
 import tms.Exception.VendorException;
+import tms.Main.Vendor;
 
 public class UpdateVendorDetailsUsecase {
 
@@ -44,6 +45,7 @@ public class UpdateVendorDetailsUsecase {
 		} 
 		catch (VendorException e) {
 			System.out.println(e.getMessage());
+			Vendor.main(null);
 			
 		}
 		

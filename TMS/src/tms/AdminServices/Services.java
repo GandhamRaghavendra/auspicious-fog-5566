@@ -28,16 +28,18 @@ public class Services {
 		System.out.println("Enter Base Price Of the Project");
 		int price=s.nextInt();
 		
-		System.out.println("Enter Project Desc");
-		String desc=s.next();
-		
-		System.out.println("Enter Project Location");
-		String loc=s.next();
 		
 		System.out.println("Enter DeadLine Date");
 		System.out.println("Please Enter The Date in YYYY-MM-DD Formate");
 		
 		String date=s.next();
+		
+		System.out.println("Enter Project Location");
+		String loc=s.next();
+		
+		System.out.println("Enter Project Desc");
+		s.nextLine();
+		String desc=s.nextLine();
 		
 		String mes = Adao.addProject(new ProjectBeen(pid, pname, ptype, price, desc, loc, date));
 		

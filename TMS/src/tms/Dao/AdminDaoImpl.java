@@ -157,7 +157,7 @@ public class AdminDaoImpl implements AdminDao{
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				list.add(new VendorBeen(rs.getInt("Vid"),rs.getString("Vname"),rs.getString("Email"),rs.getInt("Pass"),rs.getString("Cname"),rs.getString("Addres")));
+				list.add(new VendorBeen(rs.getInt("Vid"),rs.getString("Vname"),rs.getString("Email"),rs.getInt("Pass"),rs.getString("Comname"),rs.getString("Address")));
 			}
 			if(list.size()==0) throw new VendorException("Empty Table");
 		} 

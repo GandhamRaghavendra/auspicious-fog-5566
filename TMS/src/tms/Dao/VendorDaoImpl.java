@@ -73,7 +73,7 @@ public class VendorDaoImpl implements VendorDao{
 			ResultSet rs = ps1.executeQuery();
 			
 			if(rs.next()) {
-				PreparedStatement ps2 = con.prepareStatement("Update Vendor Set(Vname,Email,Pass,ComName,Address) Values(?,?,?,?,?)");
+				PreparedStatement ps2 = con.prepareStatement("Update Vendor Set Vname=?,Email=?,Pass=?,ComName=?,Address=?");
 				
 				ps2.setString(1,v.getName());
 				ps2.setString(2,v.getMail());
@@ -84,7 +84,7 @@ public class VendorDaoImpl implements VendorDao{
 				int x = ps2.executeUpdate();
 				
 				if(x>0) {
-					PreparedStatement ps3 = con.prepareStatement("Select * From Vendore Where Vid=?");
+					PreparedStatement ps3 = con.prepareStatement("Select * From Vendor Where Vid=?");
 					
 					ps3.setInt(1,Vid);
 					

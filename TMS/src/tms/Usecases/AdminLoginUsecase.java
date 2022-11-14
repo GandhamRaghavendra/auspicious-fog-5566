@@ -16,13 +16,14 @@ public class AdminLoginUsecase {
 		System.out.println("Enter Your Registered Mail");
 		String mail=s.next();
 		
-		System.out.println("Enter Your Pass");
+		System.out.println("Enter Your Pass(NO Characters Allowed)");
 		int pass=s.nextInt();
 		
 		
 		try {
 			boolean mes = dao.adminLogin(mail, pass);
 			if(mes) {
+				System.out.println(">>>>>Welcome Admin<<<<<");
 				dao.getAdmin(mail, pass);
 				Admin.main(null);				
 			}

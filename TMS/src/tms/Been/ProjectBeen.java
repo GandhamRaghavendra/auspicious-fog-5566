@@ -82,7 +82,7 @@ public void setDeadLine(String deadLine) {
 
 @Override
 public String toString() {
-	return "ProjectBeen [Id=" + Id + ", Name=" + Name + ", Type=" + Type + ", BasePrice=" + BasePrice + ", Desc=" + Desc
+	return "Project [Id=" + Id + ", Name=" + Name + ", Type=" + Type + ", BasePrice=" + BasePrice + ", Desc=" + Desc
 			+ ", Location=" + Location + ", DeadLine=" + DeadLine + "]";
 }
 

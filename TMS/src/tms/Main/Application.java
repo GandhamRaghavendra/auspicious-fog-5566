@@ -26,31 +26,37 @@ public class Application {
 
 		System.out.print("\nEnter choice : ");
 		
-		int choice = s.nextInt();
-		
-		switch (choice) {
-		case(1):{
-			AdminLoginUsecase.AdminLogin();
-			break;
-		}
-		case(2):{
-			VendorLoginUsecase.main(null);
-			break;
-		}
-	    case(3):{
-			VendorRegisterUsecase.main(null);
+		try {
+			int choice = s.nextInt();
+			
+			switch (choice) {
+			case(1):{
+				AdminLoginUsecase.AdminLogin();
+				break;
+			}
+			case(2):{
+				VendorLoginUsecase.main(null);
+				break;
+			}
+		    case(3):{
+				VendorRegisterUsecase.main(null);
+				Application.main(null);
+				break;
+			}
+		    case(85):{
+				System.out.println("Thank You For Using Our Application");
+				break;
+			}
+		    default :{
+		    	System.out.println("Chose Curctly");
+		    	Application.main(null);
+		    	break;
+		    }
+			}
+		} 
+		catch (Exception e) {
+			System.out.println("Enter Valid Number");
 			Application.main(null);
-			break;
-		}
-	    case(85):{
-			System.out.println("Thank You For Using Our Application");
-			break;
-		}
-	    default :{
-	    	System.out.println("Chose Curctly");
-	    	Application.main(null);
-	    	break;
-	    }
 		}
 	}
 

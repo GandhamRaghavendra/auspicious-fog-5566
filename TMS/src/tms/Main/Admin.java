@@ -22,58 +22,67 @@ public class Admin {
 		System.out.println("99. Return to main menu.");
 		
 		System.out.print("\nEnter choice : ");
-		int choice = s.nextInt();
-		
-		switch(choice) {
-		case 1:
-	        Services.addProject();
-	        Admin.main(null);
-			break;
-		case 2:
-			Services.removeProject();
-			Admin.main(null);
-			break;
-		case 3:
-			Services.addVendor();
-			Admin.main(null);
-			break;
-		case 4:
-			Services.removeVendor();
-			Admin.main(null);
-			break;
-		case 5:
-			Services.getAllProjects();
-			Admin.main(null);
-			break;
-		case 6:
-			Services.getAllVendors();
-			Admin.main(null);
-			break;
-		case 7:
-			Services.getAllBids();
-			Admin.main(null);
-			break;
-		case 8:
-			Services.approveBid();
-			Admin.main(null);
-			break;
-		case 9:
-			Services.getAllApprovedBids();
-			Admin.main(null);
-			break;
-		case 10:
-			Services.getAdmin();
-			Admin.main(null);
-			break;
-		case 99:
-			System.out.println("Returned To Main Menu");
-			Application.main(null);
-			break;
-		default :
-			System.out.println("Chose Right Option");
-			Admin.main(null);
-			break;
+		try {
+			int choice = s.nextInt();
+			
+			switch(choice) {
+			case 1:
+		        Services.addProject();
+		        Admin.main(null);
+				break;
+			case 2:
+				Services.removeProject();
+				Admin.main(null);
+				break;
+			case 3:
+				Services.addVendor();
+				Admin.main(null);
+				break;
+			case 4:
+				Services.removeVendor();
+				Admin.main(null);
+				break;
+			case 5:
+				Services.getAllProjects();
+				Admin.main(null);
+				break;
+			case 6:
+				Services.getAllVendors();
+				Admin.main(null);
+				break;
+			case 7:
+				Services.getAllBids();
+				Admin.main(null);
+				break;
+			case 8:
+				Services.approveBid();
+				Admin.main(null);
+				break;
+			case 9:
+				Services.getAllApprovedBids();
+				Admin.main(null);
+				break;
+			case 10:
+				Services.getAdmin();
+				Admin.main(null);
+				break;
+			case 99:
+				System.out.println("Returned To Main Menu");
+				Application.main(null);
+				break;
+			default :
+				System.out.println("Chose Right Option");
+				Admin.main(null);
+				break;
+			}
+		} 
+		catch (Exception e) {
+		   System.out.println("Enter Valid Number");
+		   Admin.main(null);
 		}
+		
+		
+		
 //		s.close();
 	}
 }
